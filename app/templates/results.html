@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Search for tag</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/results.css') }}">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
@@ -15,22 +15,27 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
   <body>
-    <div class="container">
-        <div class="heading-div">
+    <div class="container results-container">
+        <div class="results-heading-div">
           <h1>Search Results</h1>
-          <p><a href='https://www.dropbox.com/home?preview={{ data.replace('/','') }}'>{{ data}}</a></p>
+        </div>
+        <div class="search-type">
+          <h3>Dropbox</h3>
+        </div>
+          <!-- <div class="directories-div">
+              <h4>Directories</h4>
+          </div><div class="files-div">
+              <h4>Files</h4>
+          </div> -->
+          {% for data in data %}
+            {% if data.is_dir %}
+              <p><a href='https://www.dropbox.com/home{{ data.path }}'>{{ data.path }}</a></p>
+            {% else %}
+                <p><a href='https://www.dropbox.com/home{{ data.path }}'>{{ data.path }}</a></p>
+            {% endif %}
+          {% endfor %}
         </div>
 
-        <div class="search-bar">
-          <!-- <form class="" action="{{ url_for('search')}}" method="POST">
-            <div class="input-group">
-              <input type="text" class="form-control" id="search" name="search-input" placeholder="Enter a tag...">
-              <span  class="input-group-btn">
-              <button class="btn btn-default" id="go" type="submit">Go</button>
-              </span>
-            </div>
-          </form> -->
-        </div>
-    </div>
+      
   </body>
 </html>

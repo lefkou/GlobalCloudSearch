@@ -20,4 +20,4 @@ def search():
     client = dropbox.client.DropboxClient(access_token)
     file_name = request.form['search-input']
     data =  client.search("", file_name, file_limit=1000, include_deleted=False)
-    return render_template("results.html", data = data[0]['path'])
+    return render_template("results.html", data = data)
