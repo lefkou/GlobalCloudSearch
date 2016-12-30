@@ -3,6 +3,9 @@
   /*text-align: center;*/
   font-family: 'Raleway', sans-serif;
 }
+#heading-main{
+  font-size: 20px;
+}
 .heading-div{
   text-align: center;
   color: #30A9DE;
@@ -15,6 +18,9 @@
 }
 .input-group .form-control {
   border-radius: 0px;
+  height: 70px;
+  font-size: 30px;
+  line-height: 50px;
 
 }
 search :active{
@@ -24,6 +30,8 @@ search :active{
 }
 
 #go{
+  height: 70px;
+  width: 80px;
   background-color: #30A9DE;
   border: none;
   color: #fff;
