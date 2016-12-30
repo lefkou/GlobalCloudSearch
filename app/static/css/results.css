@@ -1,12 +1,19 @@
-
+body{
+  background-color: #EAEDF2;
+}
 .results-container{
-  padding-top: 50px;
-  font-family: 'Raleway', sans-serif;
-
+  padding-top: 100px;
+  font-family: 'Open Sans', sans-serif;
+  color: #566270;
+  font-weight: lighter;
 }
 .results-heading-div{
   text-align: center;
-  color: #30A9DE;
+
+}
+.results-heading-div h1{
+  color: #77AF9C;
+  font-weight: bolder;
 }
 .directories-div{
   width: 20%;
@@ -15,4 +22,42 @@
 .files-div{
   width: 20%;
   float:left;
+}
+#back-button {
+  color:  #566270;
+  background-color: #EAEDF2;
+  border: none;
+}
+
+#back-button:hover{
+  color: #566270;
+  border: none;
+  background-color:#EAEDF2;
+}
+
+.results-div{
+  margin-top: 100px;
+  text-align: center;
+
+}
+.col-md-6{
+  padding-left: 20px;
+}
+#dropbox-div {
+  border-right: solid 0.5px #D4DFE6;
+}
+
+#results-div h3{
+  font-weight: bold;
+}
+#result-names{
+  text-align: left;
+}
+#back-button-div{
+  margin-top: 100px;
+}
+#result-names p{
+  color: black;
+  text-decoration: none;
+
 }

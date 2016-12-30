@@ -1,41 +1,58 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Search for tag</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/results.css') }}">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-    <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  </head>
-  <body>
+{% extends "layout.html" %}
+{% block title %}Results{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/results.css') }}">
+{% endblock %}
+{% block body %}
     <div class="container results-container">
         <div class="results-heading-div">
-          <h1>Search Results</h1>
+          <i class=" fa-cloud fa-5x"></i>
+<span class="sr-only">Loading...</span>
         </div>
         <div class="search-type">
-          <h3>Dropbox</h3>
+
         </div>
-          <!-- <div class="directories-div">
-              <h4>Directories</h4>
-          </div><div class="files-div">
-              <h4>Files</h4>
-          </div> -->
-          {% for data in data %}
-            {% if data.is_dir %}
-              <p><a href='https://www.dropbox.com/home{{ data.path }}'>{{ data.path }}</a></p>
-            {% else %}
-                <p><a href='https://www.dropbox.com/home{{ data.path }}'>{{ data.path }}</a></p>
-            {% endif %}
-          {% endfor %}
+        <div class="results-div row">
+            <div id="dropbox-div" class="col-md-6">
+              <h3>Dropbox</h3><i class="fa fa-dropbox fa-4x" aria-hidden="true"></i>
+              <br>
+              <br>
+              <div id="result-names">
+                {% set i = 0 %}
+                {% for data in data %}
+                {% set i = i + 1 %}
+                    <p><a href='https://www.dropbox.com/home{{ data.path }}'>{{ i|string +". "+ data.path.rsplit('/',1)[1] }}
+                      
+                    </a>
+                    </p>
+                {% endfor %}
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <h3>Google Drive</h3>
+              <i class="fa fa-google fa-4x" aria-hidden="true"></i>
+
+              <br>
+              <br>
+              <div id="result-names">
+                {% set i = 0 %}
+                {% for data in data %}
+                {% set i = i + 1 %}
+                  <p><a href='https://www.dropbox.com/home{{ data.path }}'>{{ i|string +". "+ data.path.rsplit('/',1)[1] }}</a></p>
+                {% endfor %}
+              </div>
+            </div>
         </div>
 
-      
-  </body>
-</html>
+        <div id="back-button-div">
+          <a href="{{url_for('hello')}}">
+          <button type="button" id="back-button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          </button>
+          </a>
+        </div>
+
+        </div>
+{% endblock %}
