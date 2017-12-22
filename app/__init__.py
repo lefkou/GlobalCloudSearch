@@ -3,9 +3,9 @@ import dropbox
 
 app = Flask(__name__)
 
-app_key = '7l8ffoj7zzz8p1j'
-app_secret = '8w15ijlf5037y6u'
-access_token = '4K6vAJC9MA4AAAAAAAACAO77hjgpiwlHMCqyWJ0mxwZvjKaiUu7nq7sg0A76gwT3'
+app_key = ''
+app_secret = ''
+access_token = ''
 
 flow = dropbox.client.DropboxOAuth2FlowNoRedirect(app_key, app_secret)
 
